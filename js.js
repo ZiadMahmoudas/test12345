@@ -124,46 +124,84 @@ const backdrop = document.getElementById('backdrop');
                 body.style.maxHeight = body.scrollHeight + "px";
             }
         }
-        (function() {
-    'use strict';
-    document.addEventListener('contextmenu', function(e) {
-        e.preventDefault();
-    });
+//         (function() {
+//     'use strict';
+//     document.addEventListener('contextmenu', function(e) {
+//         e.preventDefault();
+//     });
 
-    document.addEventListener('keydown', function(e) {
-        if (e.key === 'F12' || e.keyCode === 123) {
-            e.preventDefault();
-            return false;
-        }
+//     document.addEventListener('keydown', function(e) {
+//         if (e.key === 'F12' || e.keyCode === 123) {
+//             e.preventDefault();
+//             return false;
+//         }
 
-        if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) {
-            e.preventDefault();
-            return false;
-        }
+//         if (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) {
+//             e.preventDefault();
+//             return false;
+//         }
 
-   if (e.ctrlKey && (e.key === 'u' || e.keyCode === 85)) {
-        e.preventDefault();
-        return false;
-    }
-    });
+//    if (e.ctrlKey && (e.key === 'u' || e.keyCode === 85)) {
+//         e.preventDefault();
+//         return false;
+//     }
+//     });
 
-    const devToolsCheck = function() {
-        if (window.console && window.console.time) {
-                (function() {
-                    (function() {
-                        debugger;
-                    }).apply(this, ['alwaysOn']);
-                })();
+//     const devToolsCheck = function() {
+//         if (window.console && window.console.time) {
+//                 (function() {
+//                     (function() {
+//                         debugger;
+//                     }).apply(this, ['alwaysOn']);
+//                 })();
          
-        }
-    };
+//         }
+//     };
     
 
-    setInterval(devToolsCheck, 1000);
+//     setInterval(devToolsCheck, 1000);
 
 
-    document.addEventListener('copy', function(e) {
-        e.preventDefault();
-    });
+//     document.addEventListener('copy', function(e) {
+//         e.preventDefault();
+//     });
 
-})();
+// })();
+
+  const langWrapper = document.getElementById('langWrapper');
+        
+        function toggleLang(e) {
+            e.stopPropagation();
+            langWrapper.classList.toggle('active');
+            // تغيير السهم فوق/تحت
+            const icon = langWrapper.querySelector('.lang-btn i');
+            if(langWrapper.classList.contains('active')) {
+                icon.classList.remove('fa-chevron-up');
+                icon.classList.add('fa-chevron-down');
+            } else {
+                icon.classList.remove('fa-chevron-down');
+                icon.classList.add('fa-chevron-up');
+            }
+        }
+
+        function selectLang(countryCode, langName, element) {
+            // تغيير النص والصورة في الزرار
+            document.getElementById('selectedFlag').src = `https://flagcdn.com/w20/${countryCode}.png`;
+            document.getElementById('selectedLangText').innerText = langName;
+            
+            // تغيير اللون البنفسجي للعنصر المختار
+            document.querySelectorAll('.lang-menu li').forEach(li => li.classList.remove('active'));
+            element.classList.add('active');
+            
+            // قفل القائمة
+            langWrapper.classList.remove('active');
+            langWrapper.querySelector('.lang-btn i').classList.replace('fa-chevron-down', 'fa-chevron-up');
+        }
+
+        // قفل القائمة لو ضغطت في أي مكان بره
+        document.addEventListener('click', function(e) {
+            if (!langWrapper.contains(e.target)) {
+                langWrapper.classList.remove('active');
+                langWrapper.querySelector('.lang-btn i').classList.replace('fa-chevron-down', 'fa-chevron-up');
+            }
+        });

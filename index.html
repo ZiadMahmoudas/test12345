@@ -281,20 +281,40 @@
     </div>
     </main>
 
-    <footer class="footer">
+  <footer class="footer">
         <div class="container">
-            <div class="footer-grid">
+            
+            <div class="footer-top">
+                <div class="footer-top-left">
+                    <img src="https://cdn.sikayetvar.com/public/images/xolvie-logo2.svg?v=1" alt="Xolvie" class="footer-logo">
+                    <ul class="footer-top-links">
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">For Brands</a></li>
+                        <li><a href="#">Frequently Asked Questions (FAQ)</a></li>
+                        <li><a href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-social">
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                    <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                </div>
+            </div>
+
+            <div class="footer-middle">
                 <div class="footer-col">
                     <h4>Complaints</h4>
                     <ul>
-                        <li><a href="#">Hypic Pro Double Charge - 300 PHP...</a></li>
-                        <li><a href="#">Cancel Coomeet Premium And Reverse Charge</a></li>
-                        <li><a href="#">Dyson V15 – Warranty Claim For Seal...</a></li>
-                        <li><a href="#">Unfair Free Fire Account Loss Recovery...</a></li>
-                        <li><a href="#">Samsung UE50TU8000UXTK Model TV...</a></li>
-                        <li><a href="#">Missing SHEIN Package In New York...</a></li>
-                        <li><a href="#">4rabet Deposit Of ₹5,000 Not Credited...</a></li>
-                        <li style="margin-top: 10px;"><a href="#">All Complaints</a></li>
+                        <li><a href="#">Unauthorized Amazon Prime Subscription Fee On My Card</a></li>
+                        <li><a href="#">Hypic Pro Double Charge - 300 PHP Subscription Not Activated</a></li>
+                        <li><a href="#">Dyson V15 – Warranty Claim For Seal Deformation And Air Leakage</a></li>
+                        <li><a href="#">EDreams Customer Service Complaint Over Missing Ticket</a></li>
+                        <li><a href="#">Free Fire Account Recovery After Email Binding Was Removed</a></li>
+                        <li><a href="#">Samsung UE50TU8000UXTK Model TV Doesn't Work Again!</a></li>
+                        <li><a href="#">Skechers Vigor 3.0 Shoes Tore At The Sides After One Year</a></li>
+                        <li><a href="#">Missing SHEIN Package In New York — Refund Requested</a></li>
+                        <li><a href="#">Dyson V15 Detect Keeps Turning Off During Use</a></li>
+                        <li><a href="#">Citroën C5 Aircross Roof Leak Causes Interior Flooding</a></li>
+                        <li><a href="#">All Complaints</a></li>
                     </ul>
                 </div>
 
@@ -304,7 +324,7 @@
                         <li><a href="#">OkCupid</a></li>
                         <li><a href="#">1win</a></li>
                         <li><a href="#">MyIQ</a></li>
-                        <li style="margin-top: 10px;"><a href="#">All Brands</a></li>
+                        <li><a href="#">All Brands</a></li>
                         <li><a href="#">New Brands</a></li>
                     </ul>
                 </div>
@@ -312,39 +332,49 @@
                 <div class="footer-col">
                     <h4>Most Searched</h4>
                     <ul>
-                        <li><a href="#">Tango</a></li>
-                        <li><a href="#">Trustwallet</a></li>
-                        <li><a href="#">Garena Free Fire</a></li>
-                        <li><a href="#">Free Fire Max</a></li>
-                        <li><a href="#">Omegle</a></li>
-                        <li><a href="#">EDreams</a></li>
-                        <li><a href="#">VFS Global</a></li>
-                        <li><a href="#">Zara</a></li>
-                        <li><a href="#">1win</a></li>
-                        <li><a href="#">Betterme</a></li>
-                        <li style="margin-top: 10px;"><a href="#">All Complaints</a></li>
+                        <li><a href="#">Getcontact.Com</a></li>
+                        <li><a href="#">ByBit</a></li>
+                        <li><a href="#">Yourselfirst</a></li>
+                        <li><a href="#">Fun88</a></li>
+                        <li><a href="#">Parimatch</a></li>
+                        <li><a href="#">MSPY</a></li>
+                        <li><a href="#">PDFAid</a></li>
+                        <li><a href="#">Sunexpress</a></li>
+                        <li><a href="#">OKX</a></li>
                     </ul>
                 </div>
             </div>
 
             <div class="footer-bottom">
-                <div class="footer-bottom-links">
+                
+                <div class="footer-legal-links">
                     <a href="#">Member Privacy Notice</a>
                     <a href="#">Visitor Privacy Notice</a>
                     <a href="#">Terms Of Use</a>
                 </div>
 
-                <div class="language-selector">
-                    <img src="https://flagcdn.com/w20/us.png" alt="English" width="20">
-                    <span>English</span>
-                    <i class="fas fa-chevron-down" style="font-size: 12px;"></i>
+                <div class="lang-dropdown-wrapper" id="langWrapper">
+                    <button class="lang-btn" onclick="toggleLang(event)">
+                        <img src="https://flagcdn.com/w20/us.png" alt="English" id="selectedFlag"> 
+                        <span id="selectedLangText">English</span> 
+                        <i class="fas fa-chevron-up"></i>
+                    </button>
+                    
+                    <ul class="lang-menu">
+                        <li onclick="selectLang('tr', 'Türkiye', this)"><img src="https://flagcdn.com/w20/tr.png" alt="TR"> Türkiye</li>
+                        <li onclick="selectLang('de', 'Deutschland', this)"><img src="https://flagcdn.com/w20/de.png" alt="DE"> Deutschland</li>
+                        <li onclick="selectLang('ru', 'Россия', this)"><img src="https://flagcdn.com/w20/ru.png" alt="RU"> Россия</li>
+                        <li class="active" onclick="selectLang('us', 'English', this)"><img src="https://flagcdn.com/w20/us.png" alt="EN"> English</li>
+                        <li onclick="selectLang('es', 'Spanish', this)"><img src="https://flagcdn.com/w20/es.png" alt="ES"> Spanish</li>
+                    </ul>
                 </div>
 
-                <div class="copyright-right">
-                    <span>© 2026 Xolvie. All rights reserved.</span><br>
-                    <a href="#" style="color: #fff; font-weight: bold;">TrustBuy</a><br>
+                <div class="footer-copyright">
+                    <span>© 2026 Xolvie. All rights reserved.</span>
+                    <a href="#" class="trustbuy">TrustBuy</a>
                     <span>Connected with <strong>Saki</strong></span>
                 </div>
+
             </div>
         </div>
     </footer>
